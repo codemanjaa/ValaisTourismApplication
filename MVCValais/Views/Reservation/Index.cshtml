@@ -1,0 +1,96 @@
+﻿@model DTO.Reservation
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Reservation Portal</h2>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+
+    @using (Html.BeginForm("Index", "Reservation", FormMethod.Get))
+    {
+
+        <div class="form-group row">
+            <div class="col-md-3">
+
+                <label for="checkin" class="col-1 col-form-label">Check-in</label>
+                @Html.Hidden("checkin")
+                <input class="form-control" type="date" pattern="\d{1,2}/\d{1,2}/\d{4}" name="checkin" id="checkin">
+            </div>
+
+            <div class="col-md-3">
+
+                <label for="checkin" class="col-1 col-form-label">Check-out</label>
+                <input class="form-control" pattern="" type="date" id="checkout">
+
+            </div>
+            <div class="col-md-3">
+
+                <label for="checkin" class="col-1 col-form-label">Location</label>
+               
+                <input type="text" class="form-control" placeholder="Location">
+            </div>
+            <div class="col-md-3">
+                <br />
+                <button class="btn btn-primary bg-primary form-control" type="submit" id="search">Search</button>
+
+            </div>
+        </div>
+
+}
+
+
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdReservation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdReservation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservationNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservationNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRoom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRoom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckIn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckIn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckOut)
+        </dd>
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")
+</p>

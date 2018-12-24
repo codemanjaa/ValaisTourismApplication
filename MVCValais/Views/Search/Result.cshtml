@@ -1,0 +1,82 @@
+﻿@model  MVCValais.Models.SearchResultVM 
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Result";
+}
+
+<h2>Search Result</h2>
+
+<hr />
+<div>
+    <h4>Welcome to Valais Booking Portal </h4>
+
+</div>
+
+<dl>
+    <dt>
+        @Html.DisplayNameFor(model => model.Checkin):
+        @Html.DisplayFor(modelItem => modelItem.Checkin)
+    </dt>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Checkout):
+        @Html.DisplayFor(modelItem => modelItem.Checkout)
+    </dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.Location):
+        @Html.DisplayFor(modelItem => modelItem.Location)
+    </dt>
+   
+
+</dl>
+<hr />
+
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Hotel Name</th>
+        <th>Room Id</th>
+        <th>Price</th>
+        <th>Photos</th>
+    </tr>
+    @for (var i = 0; i < Model.roomVMList.Count; i++)
+    {
+        <tr>
+
+
+            <td> @Html.DisplayFor(m => Model.roomVMList[i].HotelName)</td>
+            <td> @Html.DisplayFor(m => Model.roomVMList[i].IdRoom)</td>
+            <td> @Html.DisplayFor(m => Model.roomVMList[i].Price)</td>
+            <td>
+                
+                @for (var j = 0; j < Model.roomVMList[i].PictureList.Count; j++)
+                {
+            
+            
+                <td border="3">
+                   
+                    <img src="@Html.DisplayFor(m => Model.roomVMList[i].PictureList[j])" width="150" height="150" name="room"
+                    onmouseover="this.width='300';this.height='200';"   onmouseout="this.width='150';this.height='150';" />
+                </td>
+          
+        }
+
+                </td>
+
+                <td>
+                   <a href="@Html.DisplayFor(m => Model.roomVMList[i].Website)">Go to web</a>
+                </td>
+
+
+
+
+                </tr>
+            }
+</table>
+
+
+
+
+

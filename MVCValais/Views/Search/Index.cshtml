@@ -1,0 +1,71 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Search Portal</h2>
+
+
+<h4>Search</h4>
+<hr />
+
+@using (Html.BeginForm("Result", "Search", FormMethod.Get, new { id = "searchForm" }))
+{
+
+    <script type="text/javascript">
+        function checkDate() {
+
+                document.getElementById("Checkout").addEventListener("change", function () {
+                var checkout = this.value;
+                var dateEntered = new Date(checkout);
+                //alert(checkout);
+                console.log(input); 
+                console.log(dateEntered); 
+            });
+            
+
+        }
+    </script>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+
+            <label for="checkin" class="col-1 col-form-label">Check-in</label>
+            <div class="checkindate">
+                <input class="form-control" type="date" name="Checkin" id="Checkin" required />
+            </div>
+
+            </div>
+
+        <div class="col-md-3">
+
+            <label for="checkout" class="col-1 col-form-label">Check-out</label>
+            <input class="form-control" type="date" name="Checkout" id="Checkout" required />
+
+        </div>
+        <div class="col-md-3">
+
+            <label for="location" class="col-1 col-form-label">Location</label>
+           
+            <select class="form-control" id="Location" name="Location">
+                <option>Brig</option>
+                <option>Martigny</option>
+                <option>Sion</option>
+                
+            </select>
+
+        </div>
+        <div class="col-md-3">
+            <br />
+            <button class="btn btn-primary bg-primary form-control" type="submit" id="search">Search</button>
+
+        </div>
+    </div>
+
+
+
+
+}
